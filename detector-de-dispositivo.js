@@ -16,7 +16,13 @@ var DeviceDetector = {
     isRetina: false,
 
     detectRetina: function () {
-      this.isRetina = window.devicePixelRatio > 1;
+      // Cria um media query para verificar se a resolução é maior que 1.25 pixels por pixel CSS
+      var mediaQuery = '(-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi)';
+      if (window.matchMedia && window.matchMedia(mediaQuery).matches) {
+        this.isRetina = true;
+      } else {
+        this.isRetina = false;
+      }
     },
   
     detect: function () {
@@ -37,6 +43,9 @@ var DeviceDetector = {
         isDesktop: this.isDesktop,
         screenWidth: this.screenWidth,
         screenHeight: this.screenHeight,
+        isPortrait: this.isPortrait,
+        isLandscape: this.isLandscape,
+        isRetina: this.isRetina,
       };
     },
     redirectByDeviceType: function (mobileUrl, tabletUrl, desktopUrl) {

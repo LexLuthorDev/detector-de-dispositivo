@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/gh/LexLuthorDev/detector-de-dispositivo@master/detector-de-dispositivo.js"></script>
+    <script src="./detector-de-dispositivo.js"></script>
     <script>
         // Agora você pode usar a biblioteca
         //.log(DeviceDetector.getDeviceInfo());
@@ -14,6 +14,9 @@
         console.log(DeviceDetector.isMobile); // true se for um dispositivo móvel (celular)
         console.log(DeviceDetector.isTablet); // true se for um tablet
         console.log(DeviceDetector.isDesktop); // true se for um desktop
+        console.log("isPortrait:", DeviceDetector.isPortrait);
+        console.log("isLandscape:", DeviceDetector.isLandscape);
+        console.log("isRetina:", DeviceDetector.isRetina);
       </script>
     <script>
         // Redirecionar os usuários para URLs específicas com base no tipo de dispositivo
