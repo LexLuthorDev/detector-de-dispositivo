@@ -1,0 +1,21 @@
+{
+    "name": "detector-de-dispositivo",
+    "version": "1.0.0",
+    "description": "Biblioteca simples para detectar o tipo de dispositivo e redirecionar para um html especifico",
+    "main": "detector-de-dispositivo.js",
+    "author": "LexLuthor <lexluthordevfull@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LexLuthorDev/detector-de-dispositivo/tree/master"
+    },
+    "keywords": [
+        "biblioteca",
+        "detecção",
+        "dispositivos"
+    ],
+    "bugs": {
+        "url": "http://Em Breve.com"
+    }
+    
+}

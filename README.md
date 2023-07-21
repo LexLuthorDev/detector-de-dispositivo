@@ -1,5 +1,5 @@
 Biblioteca de Detecção de Dispositivos
-A biblioteca de detecção de dispositivos é uma ferramenta JavaScript que permite que você identifique o tipo de dispositivo (móvel, tablet ou desktop) e suas dimensões de tela. Ela pode ser usada para criar experiências mais adaptáveis e responsivas em seus projetos da web.
+A biblioteca de detecção de dispositivos é uma ferramenta JavaScript que permite que você identifique o tipo de dispositivo (móvel, tablet ou desktop), suas dimensões de tela, orientação e se possui tela de alta resolução (Retina display). Ela pode ser usada para criar experiências mais adaptáveis e responsivas em seus projetos da web.
 
 Utilização via CDN
 Para utilizar a biblioteca em seus projetos, inclua o seguinte script no arquivo HTML do seu site:
@@ -31,6 +31,15 @@ isTablet: Booleano que indica se o dispositivo é um tablet (true) ou não (fals
 isDesktop: Booleano que indica se o dispositivo é um desktop (true) ou não (false).
 screenWidth: Largura da tela do dispositivo em pixels.
 screenHeight: Altura da tela do dispositivo em pixels.
+isPortrait: Booleano que indica se o dispositivo está em modo retrato (orientação vertical).
+isLandscape: Booleano que indica se o dispositivo está em modo paisagem (orientação horizontal).
+isRetina: Booleano que indica se o dispositivo possui tela de alta resolução (Retina display).
+detectOrientation()
+O método detectOrientation() é responsável por detectar a orientação do dispositivo e definir as propriedades isPortrait e isLandscape com base na largura e altura da tela.
+
+detectRetina()
+O método detectRetina() é responsável por verificar se o dispositivo possui uma tela de alta resolução (Retina display) e definir a propriedade isRetina com base no valor de window.devicePixelRatio.
+
 Redirecionamento Baseado no Tipo de Dispositivo
 Você pode utilizar a biblioteca para redirecionar usuários para diferentes páginas com base no tipo de dispositivo. Para isso, utilize o método redirectByDeviceType().
 
@@ -59,6 +68,9 @@ Mantenha sua biblioteca atualizada, corrigindo bugs e adicionando novos recursos
 Contribuição
 Se você encontrar algum bug ou tiver sugestões de melhorias para a biblioteca, sinta-se à vontade para contribuir. Envie suas contribuições através de pull requests no repositório da biblioteca no GitHub.
 
+Contribuição
+Se você encontrar algum bug ou tiver sugestões de melhorias para a biblioteca, sinta-se à vontade para contribuir. Envie suas contribuições através de pull requests no repositório da biblioteca no GitHub.
+
 Licença
 A biblioteca de detecção de dispositivos é licenciada sob a Licença MIT. Leia o arquivo de licença para mais informações sobre os termos de uso.
 
@@ -66,5 +78,12 @@ Contato
 Caso tenha alguma dúvida ou precise de suporte, entre em contato com nossa equipe de desenvolvedores através do email: lexluthordevfull@gmail.com
 
 Versão
-1.0.0 (Última Atualização: 21/07/2023)
+1.1.0 (Última Atualização: 21/07/2023)
+
+Histórico de Versões
+1.1.0: Adicionadas as funcionalidades de detecção de orientação e Retina display.
+Agradecimentos Especiais
+Agradecemos aos desenvolvedores que contribuíram para tornar esta biblioteca mais completa e útil para a comunidade. Seu apoio é fundamental para o crescimento e aprimoramento contínuo deste projeto. Muito obrigado!
+
+Aproveite as novas funcionalidades da biblioteca e continue melhorando suas aplicações front-end!
 

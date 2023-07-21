@@ -4,6 +4,20 @@ var DeviceDetector = {
     isDesktop: false,
     screenWidth: window.innerWidth,
     screenHeight: window.innerHeight,
+
+    isPortrait: false,
+    isLandscape: false,
+
+    detectOrientation: function () {
+      this.isPortrait = window.innerHeight > window.innerWidth;
+      this.isLandscape = window.innerWidth > window.innerHeight;
+    },
+
+    isRetina: false,
+
+    detectRetina: function () {
+      this.isRetina = window.devicePixelRatio > 1;
+    },
   
     detect: function () {
       // Verificar se o dispositivo é um celular
@@ -43,4 +57,8 @@ var DeviceDetector = {
   };
   
   DeviceDetector.detect(); // Chamar a detecção assim que a biblioteca for carregada
+  DeviceDetector.detectOrientation(); // Chamar a detecção de orientação
+  DeviceDetector.detectRetina(); // Chamar a detecção de Retina display
+
+
   
