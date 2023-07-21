@@ -62,6 +62,36 @@ Substitua as URLs 'pagina-mobile.html', 'pagina-tablet.html' e 'pagina-desktop.h
 
 Lembre-se de que o redirecionamento automático pode ser intrusivo para os usuários, então considere a experiência do usuário e a natureza do seu site ou aplicativo antes de implementá-lo.
 
+Exemplo de uso completo
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de Uso das Funções Adicionadas</title>
+</head>
+<body>
+  <!-- Inclua a biblioteca via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sua-biblioteca@1.1.0/device-detector.js"></script>
+  <script>
+    // Exemplo de uso da função detectOrientation()
+    DeviceDetector.detectOrientation();
+
+     Exemplo de uso da função detectRetina()
+    DeviceDetector.detectRetina();
+
+    // Exemplo de uso da função getDeviceInfo() com as novas propriedades
+    var deviceInfo = DeviceDetector.getDeviceInfo();
+    console.log("isPortrait:", deviceInfo.isPortrait);
+    console.log("isLandscape:", deviceInfo.isLandscape);
+    console.log("isRetina:", deviceInfo.isRetina);
+
+    // Exemplo de redirecionamento baseado no tipo de dispositivo
+    DeviceDetector.redirectByDeviceType('pagina-mobile.html', 'pagina-tablet.html', 'pagina-desktop.html');
+  </script>
+</body>
+</html>
+
+
 Observações
 A detecção de dispositivos pode não ser 100% precisa em todos os cenários. É sempre recomendado testar a biblioteca em diferentes dispositivos e cenários para garantir seu correto funcionamento.
 Mantenha sua biblioteca atualizada, corrigindo bugs e adicionando novos recursos, se necessário, para fornecer a melhor experiência possível aos desenvolvedores que a utilizam em seus projetos.
