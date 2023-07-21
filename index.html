@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./detector-de-dispositivo.js"></script>
+    <script>
+        // Agora você pode usar a biblioteca
+        //.log(DeviceDetector.getDeviceInfo());
+        //const dispositivo = DeviceDetector.getDeviceInfo(isDesktop);
+        console.log(DeviceDetector.isMobile); // true se for um dispositivo móvel (celular)
+        console.log(DeviceDetector.isTablet); // true se for um tablet
+        console.log(DeviceDetector.isDesktop); // true se for um desktop
+      </script>
+    <script>
+        // Redirecionar os usuários para URLs específicas com base no tipo de dispositivo
+        //DeviceDetector.redirectByDeviceType('pagina-mobile.html', 'pagina-tablet.html', 'pagina-desktop.html');
+      </script>
+</body>
+</html>
