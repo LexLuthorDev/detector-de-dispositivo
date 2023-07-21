@@ -11,7 +11,7 @@ Para utilizar a biblioteca em seus projetos, inclua o seguinte script no arquivo
 </head>
 <body>
   <!-- Inclua a biblioteca via CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/sua-biblioteca@1.0.0/device-detector.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/LexLuthorDev/detector-de-dispositivo@master/detector-de-dispositivo.js"></script>
   <script>
     // Agora você pode usar a biblioteca
     console.log(DeviceDetector.getDeviceInfo());
