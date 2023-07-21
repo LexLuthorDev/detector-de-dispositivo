@@ -34,11 +34,26 @@ screenHeight: Altura da tela do dispositivo em pixels.
 isPortrait: Booleano que indica se o dispositivo está em modo retrato (orientação vertical).
 isLandscape: Booleano que indica se o dispositivo está em modo paisagem (orientação horizontal).
 isRetina: Booleano que indica se o dispositivo possui tela de alta resolução (Retina display).
+isWifiConnected: Booleano que indica se o dispositivo esta conectado ao Wifi.
+
 detectOrientation()
 O método detectOrientation() é responsável por detectar a orientação do dispositivo e definir as propriedades isPortrait e isLandscape com base na largura e altura da tela.
 
 detectRetina()
 O método detectRetina() é responsável por verificar se o dispositivo possui uma tela de alta resolução (Retina display) e definir a propriedade isRetina com base no valor de window.devicePixelRatio.
+
+detectWifiConnection()
+A função detectWifiConnection() utiliza o objeto navigator.connection (ou suas variações para navegadores específicos) para verificar o tipo de conexão do dispositivo. Se o tipo de conexão for 'wifi', a propriedade isWifiConnected será verdadeira (true), indicando que o dispositivo está conectado à rede Wi-Fi.
+
+detectOS()
+A função detectOS() utiliza o objeto navigator.userAgent para identificar o sistema operacional com base no agente do usuário (user-agent) do navegador.
+
+As informações sobre o sistema operacional são armazenadas na propriedade os. Caso o sistema operacional não seja identificado como Android, iOS, macOS, Windows ou Linux, a propriedade os será definida como 'Outro'.
+
+Essa funcionalidade permitirá que os desenvolvedores ajustem comportamentos específicos com base no sistema operacional do usuário, proporcionando uma experiência mais personalizada para diferentes plataformas.
+
+detectPushNotificationSupport()
+A função detectPushNotificationSupport() verifica se a API de notificações (Notification) e o suporte a service workers (serviceWorker) estão disponíveis no navegador. Se ambos estiverem disponíveis, a propriedade supportsPushNotifications será definida como verdadeira (true), indicando que o navegador suporta notificações push.
 
 Redirecionamento Baseado no Tipo de Dispositivo
 Você pode utilizar a biblioteca para redirecionar usuários para diferentes páginas com base no tipo de dispositivo. Para isso, utilize o método redirectByDeviceType().
@@ -81,9 +96,13 @@ Exemplo de uso completo
 
     // Exemplo de uso da função getDeviceInfo() com as novas propriedades
     var deviceInfo = DeviceDetector.getDeviceInfo();
-    console.log("isPortrait:", deviceInfo.isPortrait);
-    console.log("isLandscape:", deviceInfo.isLandscape);
-    console.log("isRetina:", deviceInfo.isRetina);
+    console.log(DeviceDetector.isMobile); // true se for um dispositivo móvel (celular)
+    console.log(DeviceDetector.isTablet); // true se for um tablet
+    console.log(DeviceDetector.isDesktop); // true se for um desktop
+    console.log("isPortrait:", DeviceDetector.isPortrait);
+    console.log("isLandscape:", DeviceDetector.isLandscape);
+    console.log("isRetina:", DeviceDetector.isRetina);
+    console.log("isWifiConnected:", DeviceDetector.isWifiConnected);
 
     // Exemplo de redirecionamento baseado no tipo de dispositivo
     DeviceDetector.redirectByDeviceType('pagina-mobile.html', 'pagina-tablet.html', 'pagina-desktop.html');

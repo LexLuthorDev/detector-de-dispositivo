@@ -7,13 +7,14 @@ var DeviceDetector = {
 
     isPortrait: false,
     isLandscape: false,
+    isRetina: false,
+    isWifiConnected: false,
+    os: '',
 
     detectOrientation: function () {
       this.isPortrait = window.innerHeight > window.innerWidth;
       this.isLandscape = window.innerWidth > window.innerHeight;
     },
-
-    isRetina: false,
 
     detectRetina: function () {
       // Cria um media query para verificar se a resolução é maior que 1.25 pixels por pixel CSS
@@ -24,7 +25,35 @@ var DeviceDetector = {
         this.isRetina = false;
       }
     },
+
+    detectWifiConnection: function () {
+      var connection = window.navigator.connection || window.navigator.mozConnection || window.navigator.webkitConnection;
   
+      if (connection && connection.type === 'wifi') {
+        this.isWifiConnected = true;
+      } else {
+        this.isWifiConnected = false;
+      }
+    },
+    detectOS: function () {
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      if (userAgent.indexOf('android') !== -1) {
+        this.os = 'Android';
+      } else if (userAgent.indexOf('iphone') !== -1 || userAgent.indexOf('ipad') !== -1 || userAgent.indexOf('ipod') !== -1) {
+        this.os = 'iOS';
+      } else if (userAgent.indexOf('mac os x') !== -1) {
+        this.os = 'macOS';
+      } else if (userAgent.indexOf('windows') !== -1) {
+        this.os = 'Windows';
+      } else if (userAgent.indexOf('linux') !== -1) {
+        this.os = 'Linux';
+      } else {
+        this.os = 'Outro';
+      }
+    },
+    detectPushNotificationSupport: function () {
+      this.supportsPushNotifications = 'Notification' in window && 'serviceWorker' in navigator;
+    },
     detect: function () {
       // Verificar se o dispositivo é um celular
       this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth < 1024;
@@ -35,7 +64,7 @@ var DeviceDetector = {
       // Caso contrário, é um desktop
       this.isDesktop = !this.isMobile && !this.isTablet;
     },
-  
+    
     getDeviceInfo: function () {
       return {
         isMobile: this.isMobile,
@@ -46,6 +75,9 @@ var DeviceDetector = {
         isPortrait: this.isPortrait,
         isLandscape: this.isLandscape,
         isRetina: this.isRetina,
+        isWifiConnected: this.isWifiConnected,
+        os: this.os,
+        supportsPushNotifications: this.supportsPushNotifications,
       };
     },
     redirectByDeviceType: function (mobileUrl, tabletUrl, desktopUrl) {
@@ -68,6 +100,12 @@ var DeviceDetector = {
   DeviceDetector.detect(); // Chamar a detecção assim que a biblioteca for carregada
   DeviceDetector.detectOrientation(); // Chamar a detecção de orientação
   DeviceDetector.detectRetina(); // Chamar a detecção de Retina display
+  DeviceDetector.detectWifiConnection(); // Chamar a detecção de conexão Wi-Fi
+  DeviceDetector.detectOS(); // Chamar a detecção do sistema operacional
+  DeviceDetector.detectPushNotificationSupport(); // Chamar a detecção de suporte a notificações push
+
+
+
 
 
   
